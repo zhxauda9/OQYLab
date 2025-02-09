@@ -1,5 +1,5 @@
 <?php
-include '../components/connect.php';
+include __DIR__ . '/../components/connect.php';
 if(isset($_POST['submit'])){
 
     $email=$_POST['email'];

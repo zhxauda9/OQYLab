@@ -26,10 +26,10 @@
         </div>
         <div class="profile">
             <?php
-            $select_profile=$conn->prepare("SELECT * `tutors` WHERE id=?");
+            $select_profile=$conn->prepare("SELECT * FROM `tutors` WHERE id=?");
             $select_profile->execute([$tutor_id]);
              if($select_profile->rowCount()> 0){
-              $fetch_profile=$select_profile->fetch(PDO:FETCH_ASSOC);}
+                $fetch_profile=$select_profile->fetch(PDO::FETCH_ASSOC);
             ?>
             <img src="../uploaded_files/<?= $fetch_profile['image']; ?>">
             <h3><?= $fetch_profile['name'];?></h3>
@@ -37,7 +37,7 @@
 
             <div id="flex-btn">
                 <a href="profile.php" class="btn">view profile</a>
-                <a href="../components/admin_logout.php" onlick="return confirm('logout from this website?');" class="btn">logout</a>
+                <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');" class="btn">logout</a>
             </div>
             <?php
                 }else{
@@ -59,7 +59,6 @@
     $select_profile->execute([$tutor_id]);
     if($select_profile->rowCount()>0){
         $fetch_profile=$select_profile->fetch(PDO::FETCH_ASSOC);
-    }
     ?>
     <img src="../uploaded_files/<?=$fetch_profile['image'];?>">
     <h3><?= $fetch_profile['name']; ?></h3>
@@ -74,7 +73,7 @@
     <?php } ?>
  </div>
  <nav class="navbar">
-<a href="dashboard.php"><i class="bx bxs-home-heart"></i><span>home</span></a>
+ <a href="dashboard.php"><i class="bx bxs-home-heart"></i><span>home</span></a>
 <a href="playlist.php"><i class="bx bxs-receipt"></i><span>playlist</span></a>
 <a href="contents.php"><i class="bx bxs-graduation"></i><span>contents</span></a>
 <a href="comments.php"><i class="bx bxs-home-heart"></i><span>home</span></a>

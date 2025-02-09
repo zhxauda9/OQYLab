@@ -1,5 +1,5 @@
 <?php
-include '../components/connect.php';
+include __DIR__ . '/../components/connect.php';
 if(isset($_POST['submit'])){
     $id=unique_id();
     $name=$_POST['name'];
@@ -36,7 +36,7 @@ if(isset($_POST['submit'])){
             $message='confirm password not matched';
         }else{
             $insert_tutor=$conn->prepare('INSERT INTO `tutors`(id,name,profession,email,password,image) VALUES(?,?,?,?,?,?)');
-            $insert_tutor->execute([$id,$name,$profession,$email,$cpass,$rename]);
+            $insert_tutor->execute([$id, $name, $profession, $email, $pass, $rename]);
             move_uploaded_file($image_tmp_name,$image_folder);
             $message= 'new tutor registered! you can login now';
         }
@@ -59,15 +59,13 @@ if(isset($_POST['submit'])){
 <body>
     <?php
         if (isset($message)){
-            foreach ($message as $message){
-                echo '
-                <div class="message">
-                    <span>'.$message.'</span>
-                    <i class="bx bx-x" onclick="this.parentElement.remove();"></i>
-                </div>
-                ';
-            }
-        }
+            echo '
+            <div class="message">
+                <span>'.$message.'</span>
+                <i class="bx bx-x" onclick="this.parentElement.remove();"></i>
+            </div>
+            ';
+        }        
         
     ?>
     <div class="form-container">
