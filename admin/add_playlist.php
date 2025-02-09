@@ -36,43 +36,25 @@ include __DIR__ . '/../components/connect.php';
 </head>
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
-    <section class="dashboard">
-      <h1 class="heading">dashboard</h1>
+    <section class="playlist-form">
+        <h1 class="heading">create playlist</h1>
 
-      <div class="box-container">
-        <div class="box">
-          <h3>Welcome!</h3>
-          <p><?= $fetch_profile['name'];?></p>
-          <a href="profile.php" class="btn">view profile</a>
-        </div>
-        <div class="box">
-          <h3><?= $total_contents;?></h3>
-          <p>total contents</p>
-          <a href="add_content.php" class="btn">add new content</a>
-        </div>
-        <div class="box">
-          <h3><?= $total_playlists;?></h3>
-          <p>total playlists</p>
-          <a href="add_playlist.php" class="btn">add new playlist</a>
-        </div>
-        <div class="box">
-          <h3><?= $total_likes;?></h3>
-          <p>total likes</p>
-          <a href="contents.php" class="btn">view contents</a>
-        </div>
-        <div class="box">
-          <h3><?= $total_comments;?></h3>
-          <p>total comments</p>
-          <a href="comments.php" class="btn">view comments</a>
-        </div>
-        <div class="box">
-          <h3>quick start</h3>
-          <div class="flex-btn">
-            <a href="login.php" class="btn" style="width:200px;">login now</a>
-            <a href="register.php" class="btn" style="width:200px;">register now</a>
-          </div>"
-        </div>
-      </div>
+        <form action="" method="post" enctype="multipart/form-data">
+            <p>playlist status <span>*</span></p>
+            <select name="status">
+                <option value="" selected disabled>--select status--</option>
+                <option value="active">active</option>
+                <option value="deactive">deactive</option>
+            </select>
+            <p>playlist title <span>*</span></p>
+            <input type="text" name="title" maxlength="100" required placeholder="Enter playlist title" class="box">
+            <p>playlist description</p> 
+            <textarea name="description" class="box"placeholder="write description" maxlength="1000" cols="30" rows="10"></textarea>
+            <p>playlist thumbnail<span>*</span></p>
+            <input type="file" name="image" accept="image/*" required class="box">
+            <input type="submit" name="submit" value="create playlist" class="btn">
+        </form>
+
     </section>
     <?php include __DIR__ . '/../components/footer.php'; ?>
     <script src="/../js/admin_script.js"></script>

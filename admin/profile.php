@@ -36,43 +36,38 @@ include __DIR__ . '/../components/connect.php';
 </head>
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
-    <section class="dashboard">
-      <h1 class="heading">dashboard</h1>
-
-      <div class="box-container">
-        <div class="box">
-          <h3>Welcome!</h3>
-          <p><?= $fetch_profile['name'];?></p>
-          <a href="profile.php" class="btn">view profile</a>
+    <section class="tutor-profile" style="min-height: calc(100vh - 19rem);">
+      <h1 class="heading">profile</h1>
+        <div class="details">
+            <div class="tutor">
+            <img src="../uploaded_files/<?= $fetch_profile['image'];?>">
+                <h3><?= $fetch_profile['name'];?></h3>
+                <span><?=$fetch_profile['profession'];?></span>
+                <a href="update.php" class="btn">update profile</a>
+            </div>
+            <div class="flex">
+                <div class="box">
+                    <span><?= $total_playlists;?></span>
+                    <p>total playlists</p>
+                    <a href="playlists.php" class="btn">view playlists</a>
+                </div>
+                <div class="box">
+                    <span><?= $total_contents;?></span>
+                    <p>total contents</p>
+                    <a href="contents.php" class="btn">view contents</a>
+                </div>
+                <div class="box">
+                    <span><?= $total_likes;?></span>
+                    <p>total likes</p>
+                    <a href="likes.php" class="btn">view likes</a>
+                </div>
+                <div class="box">
+                    <span><?= $total_comments;?></span>
+                    <p>total comments</p>
+                    <a href="comments.php" class="btn">view comments</a>
+                </div>
+            </div>
         </div>
-        <div class="box">
-          <h3><?= $total_contents;?></h3>
-          <p>total contents</p>
-          <a href="add_content.php" class="btn">add new content</a>
-        </div>
-        <div class="box">
-          <h3><?= $total_playlists;?></h3>
-          <p>total playlists</p>
-          <a href="add_playlist.php" class="btn">add new playlist</a>
-        </div>
-        <div class="box">
-          <h3><?= $total_likes;?></h3>
-          <p>total likes</p>
-          <a href="contents.php" class="btn">view contents</a>
-        </div>
-        <div class="box">
-          <h3><?= $total_comments;?></h3>
-          <p>total comments</p>
-          <a href="comments.php" class="btn">view comments</a>
-        </div>
-        <div class="box">
-          <h3>quick start</h3>
-          <div class="flex-btn">
-            <a href="login.php" class="btn" style="width:200px;">login now</a>
-            <a href="register.php" class="btn" style="width:200px;">register now</a>
-          </div>"
-        </div>
-      </div>
     </section>
     <?php include __DIR__ . '/../components/footer.php'; ?>
     <script src="/../js/admin_script.js"></script>

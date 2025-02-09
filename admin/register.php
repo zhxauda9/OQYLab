@@ -1,47 +1,55 @@
 <?php
 include __DIR__ . '/../components/connect.php';
 if(isset($_POST['submit'])){
-    $id=unique_id();
-    $name=$_POST['name'];
-    $name=filter_var($name,FILTER_SANITIZE_STRING);
+    $id = unique_id();
 
-    $profession=$_POST['profession'];
-    $profession=filter_var($profession,FILTER_SANITIZE_STRING);
-
-    $email=$_POST['email'];
-    $email  =filter_var($email,FILTER_SANITIZE_STRING);
+    $name = trim($_POST['name']);
+    $profession = trim($_POST['profession']);
+    $email = filter_var($_POST['email'], FILTER_VALIDATE_EMAIL);
 
     $pass = sha1($_POST['pass']);
-    $pass = filter_var($pass, FILTER_SANITIZE_STRING);
+    $cpass = sha1($_POST['cpass']);
 
+    if (!$email) {
+        $message = 'Invalid email format';
+    } else {
+        $select_tutor = $conn->prepare("SELECT * FROM `tutors` WHERE email=?");
+        $select_tutor->execute([$email]);
 
-    $cpass=sha1($_POST['cpass']);
-    $cpass=filter_var($cpass,FILTER_SANITIZE_STRING);
+        if ($select_tutor->rowCount() > 0) {
+            $message = 'Email already exists';
+        } else {
+            if ($pass !== $cpass) {
+                $message = 'Confirm password does not match';
+            } else {
+                // Проверяем, загружен ли файл
+                if (!empty($_FILES['image']['name'])) {
+                    $image = $_FILES['image']['name'];
+                    $ext = pathinfo($image, PATHINFO_EXTENSION);  
+                    $rename = unique_id() . '.' . $ext; // Генерируем уникальное имя
+                    $image_size = $_FILES['image']['size'];
+                    $image_tmp_name = $_FILES['image']['tmp_name'];
+                    $image_folder = '../uploaded_files/' . $rename;
 
-    $image=$_FILES['image']['name'];
-    $image=filter_var($image, FILTER_SANITIZE_STRING);
-    $ext=pathinfo($image, PATHINFO_EXTENSION);  
-    $rename=unique_id().'.'.$ext;
-    $image_size=$_FILES['image']['size'];
-    $image_tmp_name=$_FILES['image']['tmp_name'];
-    $image_folder='../uploaded_files/'.$rename;
+                    if (!is_dir('../uploaded_files')) {
+                        mkdir('../uploaded_files', 0777, true); // Создаём папку, если её нет
+                    }
 
-    $select_tutor=$conn->prepare("SELECT * FROM `tutors` WHERE email=?");
-    $select_tutor->execute([$email]);
-
-    if($select_tutor->rowCount()> 0){
-        $message='email already exists';
-    }else{
-        if($pass!=$cpass){
-            $message='confirm password not matched';
-        }else{
-            $insert_tutor=$conn->prepare('INSERT INTO `tutors`(id,name,profession,email,password,image) VALUES(?,?,?,?,?,?)');
-            $insert_tutor->execute([$id, $name, $profession, $email, $pass, $rename]);
-            move_uploaded_file($image_tmp_name,$image_folder);
-            $message= 'new tutor registered! you can login now';
+                    if (move_uploaded_file($image_tmp_name, $image_folder)) {
+                        $insert_tutor = $conn->prepare('INSERT INTO `tutors`(id, name, profession, email, password, image) VALUES(?,?,?,?,?,?)');
+                        $insert_tutor->execute([$id, $name, $profession, $email, $pass, $rename]);
+                        $message = 'New tutor registered! You can login now';
+                    } else {
+                        $message = 'Failed to upload image';
+                    }
+                } else {
+                    $message = 'Please select an image';
+                }
+            }
         }
     }
 }
+
 ?>
 
 
@@ -85,13 +93,13 @@ if(isset($_POST['submit'])){
                         <option value="engineer">engineer</option>  
                     </select>
                     <p>your email<span>*</span></p>
-                    <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
+                    <input type="email" name="email" placeholder="enter your email" maxlength="50" required class="box">
                 </div>
                 <div class="col">
                     `<p>your password<span>*</span></p>
-                    <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
+                    <input type="password" name="pass" placeholder="enter your password" maxlength="50" required class="box">
                     <p>your password<span>*</span></p>
-                    <input type="password" name="cpass" placeholder="confirm your password" maxlength="20" required class="box">
+                    <input type="password" name="cpass" placeholder="confirm your password" maxlength="50" required class="box">
                     <p>select pic<span>*</span></p>
                     <input type="file" name="image" accept="image/*" required class="box">`
                 </div>

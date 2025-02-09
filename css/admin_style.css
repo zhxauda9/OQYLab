@@ -60,9 +60,11 @@ body{
     cursor: pointer; 
     padding: .8rem 2rem;
 }
-.btn:hover{
-    background-image: var(--gradient2);
+.btn:hover {
+    filter: brightness(1.2);
 }
+
+
 section{
     padding:2rem;
     max-width: 1200px;
@@ -334,7 +336,7 @@ section{
     position: relative;
 }
 
-.form img{
+.form-img{
     position: absolute;
     left:0;
     width: 30%;
@@ -346,13 +348,15 @@ section{
     border-radius: .5rem;
     padding: 2rem;
 }
-.form-container .login{
-    width: 50rem;
+.form-container .login {
+    width: 100%;
+    max-width: 50rem;
+}
+.form-container .register {
+    width: 100%;
+    max-width: 80rem;
 }
 
-.form-container .register{
-    width: 80rem;
-}
 
 .form-container form h3{
     text-align: center;
@@ -402,15 +406,276 @@ section{
     display: flex;
     gap:2rem;
 }
-
-.form-container .flex .col{
-    flex:1 1 25rem;
+.form-container .flex .col {
+    flex: 1 1 25rem;
+    min-width: 20rem;
 }
+
 
 .form-container .btn{
     width: 100%;
     font-size: 2rem;
 }
+
+/*----------- dashboard ---------*/
+.dashboard .box-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    align-items: flex-start;
+    justify-content: center;
+    gap:1.5rem;
+
+}
+
+.dashboard .box-container .box{
+    padding: 2rem;
+    border-radius: .5rem;
+    background-color: var(--white);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    line-height: 2;
+}
+
+.dashboard .box-container .box h3{
+    font-size: 2.5rem;
+    color:var(--black);
+    margin-bottom: 1.5rem;
+}
+
+.dashboard .box-container .box p{
+    font-size: 2rem;
+    color:var(--light-color);
+    padding:.8rem 1.5rem;
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    margin: 1rem 0;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+}
+
+/*----------- footer ---------*/
+.newsletter{
+    background-image:url('../image/dots.png');
+    background-repeat: no-repeat;
+    background-color: #2f57ef;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4% 0;
+    color:#fff;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.newsletter span{
+    font-size: 1.5rem;
+    background-color: #ffffff33;
+    text-transform: uppercase;
+    border-radius: 15px;
+    padding: .5rem 1rem;
+}
+
+.newsletter h1{
+    font-size: 4rem;
+    margin:.5rem;
+}
+
+.newsletter .input-field{
+    margin:1rem 0;
+}
+
+.newsletter .input-field input{
+    padding: 1rem;
+    border-radius: 10px;
+    width: 30vw;
+}
+
+.newsletter .btn{
+    border-radius: 10px;
+    border:1px solid #fff;
+    padding: .6rem 2rem;
+    font-size: 2rem;
+}
+
+.newsletter .box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.newsletter .box-container .box{
+    background-color: #ffffff21;
+    margin:1rem;
+    padding:2rem;
+    border-radius: 10px;
+}
+
+.newsletter .box-counter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.newsletter .box-counter .counter,
+.newsletter .box-counter i{
+    font-size: 3.5rem;
+}
+
+.newsletter .box-container h3{
+    font-size: 2.3rem;
+}
+
+.newsletter p{
+    font-size: 1.7rem;
+}
+
+footer{
+    background-image: url('image/category-9.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:100%;
+    padding:8% 4%;
+    position: relative;
+}
+footer p{
+    font-size: 1.7rem;
+}
+
+footer .content{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(18rem,1fr));
+    justify-content: center;
+    align-items: center;
+    line-height: 1.5;
+    color:#000;
+}
+
+footer .content .btn{
+    width:300px;
+    font-size: 1.5rem;
+    color:#fff !important;
+}
+
+footer .content img{
+    width: 150px;
+}
+
+footer .content h3{
+    font-size: 2rem;
+    text-transform: capitalize;
+    color:var(--color-primary);
+}
+
+footer .content a{
+    display: block;
+    text-transform: capitalize;
+    font-size: 18px;
+    color:#000;
+}
+
+footer .content a:hover{
+    color:var(--color-voilet);
+}
+
+.icons i{
+    font-size: 2.5rem;
+    margin:0 .5rem;
+    cursor: pointer;
+}
+
+.icons i:hover{
+    color:var(--color-secondary);
+}
+
+footer .bottom{
+    width: 90%;
+    position: absolute;
+    bottom:0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 2px solid #fff;
+    padding:2rem 0; 
+}
+
+footer .bottom a{
+    font-size: 1.1rem;
+    color:#000;
+    text-transform: capitalize;
+}
+
+/*----------- tutor profile ---------*/
+
+.tutor-profile .details{
+    box-shadow: var(--box-shadow);
+    background-color: #fff;
+    border-radius: .5rem;
+    padding:4rem 2rem;
+    text-align: center;
+}
+
+.tutor-profile .details .tutor{
+    margin-bottom: 2rem;
+}
+
+.tutor-profile .details .tutor img{
+    width:10rem;
+    height: 10rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: .5rem;
+    padding:.5rem;
+    background-image: var(--gradient);
+}
+
+.tutor-profile .details .flex h3{
+    font-size: 2.5rem;
+    margin:.5rem 0;
+    text-transform: capitalize;
+}
+
+.tutor-profile .details .tutor span{
+    font-size:1.8rem ;
+    color:var(--light-color);
+    display: block;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+}
+
+.tutor-profile .details .flex{
+    display: flex;
+    gap:1.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+    margin:4rem 0;
+}
+
+.tutor-profile .details .flex .box{
+    flex:1 1 26rem;
+    border-radius: .5rem;
+    background-color: #cccccc33;
+    padding:2rem;
+}
+
+.tutor-profile .details .flex span{
+    color:var(--main-color);
+    display: block;
+    margin-bottom: .5rem;
+    font-size: 2.5rem;
+    text-transform: capitalize;
+}
+
+.tutor-profile .details .flex .box p{
+    font-size: 2rem;
+    color:var(--black);
+    padding:.5rem 0;
+    margin-bottom: 1rem;
+    text-transform: capitalize;
+}
+
+/*----------- media screen ---------*/
 
 /*----------- media screen ---------*/
 @media(max-width:768px){
