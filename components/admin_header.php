@@ -74,7 +74,7 @@
  </div>
  <nav class="navbar">
  <a href="dashboard.php"><i class="bx bxs-home-heart"></i><span>home</span></a>
-<a href="playlist.php"><i class="bx bxs-receipt"></i><span>playlist</span></a>
+<a href="playlists.php"><i class="bx bxs-receipt"></i><span>playlist</span></a>
 <a href="contents.php"><i class="bx bxs-graduation"></i><span>contents</span></a>
 <a href="comments.php"><i class="bx bxs-home-heart"></i><span>home</span></a>
 <a href="../components/admin_logout.php" onclick="return confirm('logout from this website?');"><i class="bx bxs-log-in-circle"></i><span>logout</span></a>
