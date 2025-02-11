@@ -14,29 +14,57 @@ if (isset($_GET['get_id'])) {
     exit();
 }
 
-$select_playlist = $conn->prepare('SELECT * FROM `playlist` WHERE id=? AND tutor_id=?');
-$select_playlist->execute([$get_id, $tutor_id]);
+// Функция для генерации короткого имени файла
+function generateShortFilename($filename) {
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    return uniqid() . bin2hex(random_bytes(4)) . '.' . $ext;
+}
 
+// Выборка данных плейлиста
+$select_playlist = $conn->prepare('SELECT * FROM `playlist` WHERE id=?');
+$select_playlist->execute([$get_id]);
 if ($select_playlist->rowCount() > 0) {
     $fetch_playlist = $select_playlist->fetch(PDO::FETCH_ASSOC);
     $playlist_id = $fetch_playlist['id'];
-
-    $count_videos = $conn->prepare('SELECT COUNT(*) FROM `content` WHERE playlist_id=?');
-    $count_videos->execute([$playlist_id]);
-    $total_videos = $count_videos->fetchColumn();
+    $total_videos = $conn->prepare('SELECT COUNT(*) FROM `content` WHERE playlist_id=?');
+    $total_videos->execute([$playlist_id]);
+    $total_videos = $total_videos->fetchColumn();
 } else {
     echo '<p class="empty">No playlist found!</p>';
     exit();
 }
 
-if (isset($_POST['delete'])) {
-    $delete_videos = $conn->prepare("DELETE FROM `content` WHERE playlist_id=?");
-    $delete_videos->execute([$playlist_id]);
-    $delete_playlist = $conn->prepare("DELETE FROM `playlist` WHERE id=?");
-    $delete_playlist->execute([$playlist_id]);
+// Обновление данных плейлиста
+if (isset($_POST['submit'])) {
+    $title = filter_var($_POST['title'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $description = filter_var($_POST['description'], FILTER_SANITIZE_SPECIAL_CHARS);
+    $status = filter_var($_POST['status'], FILTER_SANITIZE_SPECIAL_CHARS);
 
-    header('location:playlists.php');
-    exit();
+    $update_playlist = $conn->prepare("UPDATE `playlist` SET title=?, description=?, status=? WHERE id=?");
+    $update_playlist->execute([$title, $description, $status, $get_id]);
+
+    // Обновление изображения
+    if (!empty($_FILES['image']['name'])) {
+        $old_image = $_POST['old_image'];
+
+        // Загружаем новое изображение
+        $image = $_FILES['image']['name'];
+        $rename = generateShortFilename($image);
+        $image_tmp_name = $_FILES['image']['tmp_name'];
+        $image_folder = __DIR__ . '/../uploaded_files/' . $rename;
+
+        if (move_uploaded_file($image_tmp_name, $image_folder)) {
+            // Удаляем старое изображение
+            if (!empty($old_image) && file_exists(__DIR__ . "/../uploaded_files/$old_image")) {
+                unlink(__DIR__ . "/../uploaded_files/$old_image");
+            }
+            $update_img = $conn->prepare('UPDATE `playlist` SET thumb=? WHERE id=?');
+            $update_img->execute([$rename, $get_id]);
+            echo 'Playlist updated!';
+        } else {
+            echo 'Failed to upload image!';
+        }
+    }
 }
 ?>
 
@@ -45,37 +73,52 @@ if (isset($_POST['delete'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Playlist Details</title>
+    <title>Add Playlist</title>
+    <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="../css/admin_style.css">
 </head>
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
+    <section class="view-playlist">
+        <h1 class="heading">playlist detail</h1>
 
-    <div class="view-playlist">
-        <h1 class="heading">Playlist Details</h1>
-
+        <?php
+        $select_playlist=$conn->prepare('SELECT * FROM `playlist` WHERE id=? AND tutor_id=?');
+        $select_playlist->execute([$get_id, $tutor_id]);
+        if($select_playlist->rowCount() > 0){
+            while($fetch_playlist = $select_playlist->fetch(PDO::FETCH_ASSOC)){
+                $playlist_id = $fetch_playlist['id'];
+                $count_videos = $conn->prepare('SELECT * FROM `content` WHERE playlist_id=?');
+                $count_videos->execute([$playlist_id]);
+                $total_videos = $count_videos->rowCount();        
+        ?>
         <div class="row">
             <div class="thumb">
-                <span><?= $total_videos; ?></span>
-                <img src="../uploaded_files/<?= htmlspecialchars($fetch_playlist['thumb']); ?>" alt="Playlist Thumbnail">
+                <span><?=$total_videos;?></span>
+                <img src="../uploaded_files/<?=$fetch_playlist['thumb'];?>">
             </div>
-        </div>
-
-        <div class="details">
-            <h3 class="title"><?= htmlspecialchars($fetch_playlist['title']); ?></h3>
-            <div class="date"><i class="bx bxs-calendar-alt"></i> <span><?= htmlspecialchars($fetch_playlist['date']); ?></span></div>
-            <div class="description">
-                <?= nl2br(htmlspecialchars($fetch_playlist['description'])); ?>
+            <div class="details">
+                <h3 class="title"><?= $fetch_playlist['title'];?></h3>
+                <div class="date"><i class="bx bxs-calendar-alt"></i><span><?=$fetch_playlist['date'];?></span></div>
+                <div class="description">
+                <?=$fetch_playlist['description'];?>
             </div>
-
+            </div>
             <form action="" method="post" class="flex-btn">
-                <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">Edit Playlist</a>
-                <input type="submit" name="delete" value="Delete Playlist" class="btn" onclick="return confirm('Are you sure you want to delete this playlist?');">
+                <input type="hidden" name="playlist_id" value="<?=$playlist_id;?>">
+                <a href="update_playlist.php?get_i=<?= $playlist_id;?>"></a>
+                <input type="submit" name="delete" value="delete playlist" class="btn" onclick="return confirm('delete this playlist');">
             </form>
         </div>
-    </div>
-
+        <?php
+            }
+        }else{
+            echo '<p class="empty">no playlist added yet!</p>';
+        }
+        ?>
+    </section>
     <?php include __DIR__ . '/../components/footer.php'; ?>
     <script src="/../js/admin_script.js"></script>
 </body>
