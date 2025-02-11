@@ -7,6 +7,36 @@ if (isset($_COOKIE['tutor_id'])) {
     $tutor_id = '';
 }
 
+//delete video from playlist
+if(isset($_POST['delete_video'])) {
+    $delete_id = $_POST['video_id'];
+    $delete_id=filter_var($delete_id, FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $verify_video=$conn->prepare('SELECT * FROM `content` WHERE id=? LIMIT 1');
+    $verify_video->execute([$delete_id]);
+
+    if( $verify_video->rowCount() > 0) {
+        $delete_video_thumb=$conn->prepare('SELECT * FROM `content` WHERE id=? LIMIT 1');
+        $delete_video_thumb->execute([$delete_id]);
+        $fetch_thumb=$delete_video_thumb->fetch(PDO::FETCH_ASSOC);
+        unlink(__DIR__ . '/../uploaded_files/'.$fetch_thumb['thumb']);
+
+        $delete_video=$conn->prepare('SELECT * FROM `content` WHERE id=? LIMIT 1');
+        $delete_video->execute([$delete_id]);
+        $fetch_video=$delete_video->fetch(PDO::FETCH_ASSOC);
+        unlink(__DIR__ . '/../uploaded_files/'.$fetch_video['video']);
+
+        $delete_likes=$conn->prepare('SELECT * FROM `comments` WHERE content_id=?');
+        $delete_likes->execute([$delete_id]);
+
+        $delete_content=$conn->prepare("DELETE FROM `content` WHERE id=?");
+        $delete_content->execute([$delete_id]);
+
+        $message[]='video deleted';
+    }else{
+        $message[]= 'video already deleted';
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -47,9 +77,9 @@ if (isset($_COOKIE['tutor_id'])) {
                 <img src="../uploaded_files/<?=$fetch_videos['thumb'];?>" class="thumb">
                 <h3 class="title"><?= $fetch_videos['title'];?></h3>
                 <form action="" method="post" class="flex-btn">
-                    <input type="hidded" name="video_id" value="<?= $video_id;?>">
+                    <input type="hidden" name="video_id" value="<?= $video_id;?>">
                     <a href="update_content.php?get_id=<?=$video_id;?>" class="btn">update</a>
-                    <input type="submit" name="delete" value="delete" class="btn" onclick="return confirm('delete this video?');">
+                    <input type="submit" name="delete_video" value="delete" class="btn" onclick="return confirm('delete this video?');">
                     <a href="view_content.php?get_id=<?=$video_id;?>" class="btn">view content</a>
                 </form>
             </div>
