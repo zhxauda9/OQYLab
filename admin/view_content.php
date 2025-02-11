@@ -34,8 +34,11 @@ if(isset($_POST['delete_video'])) {
         $fetch_video=$delete_video->fetch(PDO::FETCH_ASSOC);
         unlink(__DIR__ . '/../uploaded_files/'.$fetch_video['video']);
 
-        $delete_likes=$conn->prepare('SELECT * FROM `comments` WHERE content_id=?');
+        $delete_likes=$conn->prepare('SELECT * FROM `likes` WHERE content_id=?');
         $delete_likes->execute([$delete_id]);
+
+        $delete_comments= $conn->prepare('SELECT * FROM `comments` WHERE content_id=?');
+        $delete_comments->execute([$delete_id]);
 
         $delete_content=$conn->prepare("DELETE FROM `content` WHERE id=?");
         $delete_content->execute([$delete_id]);
@@ -148,14 +151,14 @@ if(isset($_POST['delete_comment'])) {
                         <img src="../uploaded_files/<?=$fetch_commentator['image'];?>">
                         <div>
                             <h3><?=$fetch_commentator['name'];?></h3>
-                            <span><?=$fetch_commentator['date'];?></span>
+                            <span><?=$fetch_comment['date'];?></span>
                         </div>
                     </div>
-                    <p class="text"><?=$fetch_comment['comments'];?></p>
+                    <p class="text"><?=$fetch_comment['comment'];?></p>
                     <form action="" method="post" class="flex-btn">
                         <input type="hidden" name="comment_id" value="<?=$fetch_comment['id'];?>">
                         <button type="submit" name="delete_comment" value="delete comment" class="btn"
-                        onclick="return confirm('delete this comment');"></button>
+                        onclick="return confirm('delete this comment');">delete comment</button>
                     </form>
                 </div>
                 <?php

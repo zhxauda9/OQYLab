@@ -84,6 +84,36 @@ if (isset($_POST['update'])) {
 
 // delete video 
 
+if(isset($_POST['delete_content'])){
+    $delete_id=$_POST['video_id'];
+    $delete_id=filter_var($delete_id,FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $delete_video_thumb= $conn->prepare('SELECT thumb FROM `content` WHERE id=? LIMIT 1');
+    $delete_video_thumb->execute([$delete_id]);
+    $fetch_thumb=$delete_video_thumb->fetch(PDO::FETCH_ASSOC);
+    if (!empty($fetch_thumb['thumb']) && file_exists(__DIR__ . '/../uploaded_files/'.$fetch_thumb['thumb'])) {
+        unlink(__DIR__ . '/../uploaded_files/'.$fetch_thumb['thumb']);
+    }
+
+    $delete_video= $conn->prepare('SELECT video FROM `content` WHERE id=? LIMIT 1');
+    $delete_video->execute([$delete_id]);
+    $fetch_video=$delete_video->fetch(PDO::FETCH_ASSOC);
+    if (!empty($fetch_video['video']) && file_exists(__DIR__ . '/../uploaded_files/'.$fetch_video['video'])) {
+        unlink(__DIR__ . '/../uploaded_files/'.$fetch_video['video']);
+    }
+
+    $delete_likes= $conn->prepare('DELETE FROM `likes` WHERE content_id=?');
+    $delete_likes->execute([$delete_id]);
+    $delete_comments= $conn->prepare('DELETE FROM `comments` WHERE content_id=?');
+    $delete_comments->execute([$delete_id]);
+
+    $delete_content= $conn->prepare('DELETE FROM `content` WHERE id=?');
+    $delete_content->execute([$delete_id]);
+
+    $message[]='video deleted';
+    header('location:contents.php');
+    exit();
+}
 
 ?>
 
@@ -145,14 +175,14 @@ if (isset($_POST['update'])) {
             </select>
             <img src="../uploaded_files/<?= $fetch_video['thumb'];?>">
             <p>update thumbnail<span>*</span></p>
-            <input type="file" name="image" accept="image/*" required class="box">
+            <input type="file" name="image" accept="image/*" class="box">
             <video src="../uploaded_files/<?=$fetch_video['video'];?>" controls></video>
             <p>update video<span>*</span></p>
-            <input type="file" name="video" accept="video/*" required class="box">
+            <input type="file" name="video" accept="video/*" class="box">
             <div class="flex-btn">
             <input type="submit" name="update" value="update video" class="btn">
             <a href="view_content.php?get_id=<?=$video_id;?>" class="btn">view content</a>
-            <input type="submit" name="delete content" value="delete video" class="btn">
+            <input type="submit" name="delete_content" value="delete video" class="btn">
             </div>
         </form>
     <?php
