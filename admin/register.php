@@ -1,7 +1,17 @@
 <?php
 include __DIR__ . '/../components/connect.php';
+function generate_unique_id($conn) {
+    do {
+        $id = substr(sha1(uniqid(mt_rand(), true)), 0, 20);
+        $check_id = $conn->prepare("SELECT id FROM `tutors` WHERE id = ?");
+        $check_id->execute([$id]);
+    } while ($check_id->rowCount() > 0); 
+
+    return $id;
+}
+
 if(isset($_POST['submit'])){
-    $id = unique_id();
+    $id = generate_unique_id($conn);
 
     $name = trim($_POST['name']);
     $profession = trim($_POST['profession']);
