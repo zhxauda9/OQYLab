@@ -27,7 +27,7 @@ include __DIR__ . '/components/connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>OQYLab</title>
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Custom CSS -->
@@ -36,28 +36,28 @@ include __DIR__ . '/components/connect.php';
 <body>
     <?php include __DIR__ . '/components/user_header.php'; ?>
     <section class="dashboard">
-      <h1 class="heading">dashboard</h1>
+      <h1 class="heading">Профиль</h1>
 
       <div class="box-container">
         <div class="box">
-          <h3>Welcome!</h3>
+          <h3>Қош келдіңіз!</h3>
           <p><?= $fetch_profile['name'];?></p>
-          <a href="#" class="btn">view profile</a>
+          <a href="#" class="btn">профиль қарау</a>
         </div>
         <div class="box">
           <h3><?= $total_bookmarks;?></h3>
-          <p>total bookmarks</p>
-          <a href="add_content.php" class="btn">view my bookmarks</a>
+          <p>барлық бетбелгілер</p>
+          <a href="add_content.php" class="btn">бетбелгілер қарау</a>
         </div>
         <div class="box">
           <h3><?= $total_comments;?></h3>
-          <p>total comments</p>
-          <nt href="#" class="btn">view my comments</nt>
+          <p>барлық пікірлерім</p>
+          <nt href="#" class="btn">комментариялар қарау</nt>
         </div>
         <div class="box">
           <h3><?= $total_likes;?></h3>
-          <p>total likes</p>
-          <a href="#" class="btn">view my likes</a>
+          <p>барлық лайк</p>
+          <a href="#" class="btn">лайктарымды қарау</a>
         </div>
       </div>
     </section>

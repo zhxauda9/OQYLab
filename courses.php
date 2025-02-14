@@ -28,17 +28,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>OQYLab</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 </head>
 <body>
     <?php include 'components/user_header.php'; ?>
     <div class="courses">
-        <div class="heading">
-            <span>top popular course</span>
-            <h1>OqyLab course student<br> can join with us</h1>
-        </div>
         <div class="box-container">
             <?php
             $select_courses=$conn->prepare('SELECT * FROM `playlist` WHERE status=? ORDER BY date');
@@ -61,7 +57,7 @@
             </div>
             <img class="thumb" src="uploaded_files/<?= $fetch_courses['thumb'];?>">
             <h3 class="title"><?= $fetch_courses['title'];?></h3>
-            <a href="playlist.php?get_id=<?= $course_id;?>" class="btn">view playlist</a>
+            <a href="playlist.php?get_id=<?= $course_id;?>" class="btn">Бастау</a>
             </div>
             <?php
             }

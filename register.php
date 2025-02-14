@@ -80,7 +80,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>OQYLab</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 <body>
@@ -88,29 +88,30 @@
 
 <section class="form-container">
     <div class="heading">
-        <span>join oqylab</span>
-        <h1>create account</h1>
+        <span>oqylab</span>
+        <h1>Тіркелу</h1>
     </div>
     <form action="" action="" method="post" enctype="multipart/form-data">
         <div class="flex">
-            <div class="col">
-            <p>your name<span>*</span></p>
-            <input type="text" name="name" placeholder="enter your name" maxlength="50" required class="box">
-            <p>your email<span>*</span></p>
-            <input type="email" name="email" placeholder="enter your email" maxlength="50" required class="box">    
-            </div>
-            <div class="col">
-                `<p>your password<span>*</span></p>
-                <input type="password" name="pass" placeholder="enter your password" maxlength="50" required class="box">
-                <p>your password<span>*</span></p>
-                <input type="password" name="cpass" placeholder="confirm your password" maxlength="50" required class="box">
-            </div>
+        <div class="col">
+            <p>Атыңыз<span>*</span></p>
+            <input type="text" name="name" placeholder="Атыңызды енгізіңіз" maxlength="50" required class="box">
+            <p>Электронды пошта<span>*</span></p>
+            <input type="email" name="email" placeholder="Электронды поштаңызды енгізіңіз" maxlength="50" required class="box">    
         </div>
-        <p>select pic<span>*</span></p>
-        <input type="file" name="image" accept="image/*" required class="box">
-        <p class="link">already have an account ? 
-            <a href="login.php">login now</a></p>
-            <input type="submit" name="submit" class="btn" value="register now">
+        <div class="col">
+            <p>Құпиясөз<span>*</span></p>
+            <input type="password" name="pass" placeholder="Құпиясөзіңізді енгізіңіз" maxlength="50" required class="box">
+            <p>Құпиясөзді растау<span>*</span></p>
+            <input type="password" name="cpass" placeholder="Құпиясөзіңізді растаңыз" maxlength="50" required class="box">
+        </div>
+    </div>
+    <p>Сурет таңдаңыз<span>*</span></p>
+    <input type="file" name="image" accept="image/*" required class="box">
+    <p class="link">Аккаунтыңыз бар ма? 
+        <a href="login.php">Кіру</a></p>
+    <input type="submit" name="submit" class="btn" value="Тіркелу">
+
     </form>
     </section>
     <?php include __DIR__ . '/components/footer.php'; ?>

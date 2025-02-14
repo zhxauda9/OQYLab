@@ -17,14 +17,14 @@ if (isset($_GET['get_id'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Playlist</title>
+    <title>OQYLab</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="../css/admin_style.css">
 </head>
 <body>
     <?php include __DIR__ . '/components/user_header.php'; ?>
     <section class="view-content">
-        <h1 class="heading">content detail</h1>
+        <h1 class="heading">Сабақ туралы ақпарат</h1>
 
         <?php
             $select_content=$conn->prepare("SELECT * FROM `content` WHERE id=?");
@@ -60,7 +60,7 @@ if (isset($_GET['get_id'])) {
                 echo '
                 </div>
                     <div class="empty">
-                    <p style="margin-bottom: 1.5rem;"> no content added yet!</p>
+                    <p style="margin-bottom: 1.5rem;"> Сабақ әлі қосылмады!</p>
                     <a href="add_content.php" class="btn" style="margin-top:1.5rem">add contents</a>
                     </div>
                 ';
@@ -69,7 +69,7 @@ if (isset($_GET['get_id'])) {
 
     </section>
     <section class="comments">
-            <h1 class="heading">user comments</h1>
+            <h1 class="heading">Пікірлер</h1>
             <div class="show comments">
                 <?php
                 $select_comments=$conn->prepare("SELECt * FROM `comments` WHERE content_id=?");
@@ -99,7 +99,7 @@ if (isset($_GET['get_id'])) {
                 <?php
                     }
                 }
-                echo '<p class="empty">no comments added yet!</p>'
+                echo '<p class="empty">Әлі ешкім пікірімен бөліспеді!</p>'
                 ?>
             </div>
     </section>

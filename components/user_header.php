@@ -17,7 +17,7 @@
         <nav class="navbar">
             <a href="#"><span>Басты Бет</span></a>
             <a href="#"><span>Ақпарат</span></a>
-            <a href="courses.php"><span>Сабақатр</span></a>
+            <a href="courses.php"><span>Сабақтар</span></a>
             <a href="#"><span>Ұстаздар</span></a>
             <a href="#"><span>Хабарласу</span></a>
         </nav>
@@ -43,7 +43,7 @@
 
             <div id="flex-btn">
                 <a href="profile.php" class="btn">Профиль қарау</a>
-                <a href="logout.php" onclick="return confirm('шыққыңыз келеме?');" class="btn">Аккаунттан шығу</a>
+                <a href="logout.php" onclick="return confirm('шыққыңыз келеме?');" class="btn">Шығу</a>
             </div>
             <?php
                 }else{

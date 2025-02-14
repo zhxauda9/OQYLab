@@ -27,7 +27,7 @@ if(isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin login</title>
+    <title>OQYLab</title>
     <!-- boxicon link -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- custom css link -->
@@ -50,15 +50,15 @@ if(isset($_POST['submit'])){
     <div class="form-container">
         <img src="../image/fun.jpg" class="form-img" style="left:4%;">
         <form action="" method="post" enctype="multipart/form-data" class="login">
-            <h3>login now</h3>
-            <p>your name<span>*</span></p>
-            <input type="text" name="name" placeholder="enter your name" maxlength="50" required class="box">
-            <p>your email<span>*</span></p>
-            <input type="email" name="email" placeholder="enter your email" maxlength="20" required class="box">
-            <p>your password<span>*</span></p>
-            <input type="password" name="pass" placeholder="enter your password" maxlength="20" required class="box">
-            <p class="link">do not have an account ? <<a href="register.php">register now</a></p>
-            <input type="submit" name="submit" class="btn" value="login now">
+            <h3>кіру</h3>
+            <p>атыңыщ<sзan>*</sзan></p>
+            <input type="text" name="name" placeholder="Қайрат" maxlength="50" required class="box">
+            <p>электронды пошта<span>*</span></p>
+            <input type="email" name="email" placeholder="..@gmail.com" maxlength="20" required class="box">
+            <p>құпиясөз<span>*</span></p>
+            <input type="password" name="pass" placeholder="..." maxlength="20" required class="box">
+            <p class="link">Аккаунт жоқпа? <<a href="register.php">Тіркелу</a></p>
+            <input type="submit" name="submit" class="btn" value="Кіру">
         </form>
     </div>
 </body>

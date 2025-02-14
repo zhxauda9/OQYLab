@@ -73,7 +73,7 @@ if(isset($_POST['submit'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>admin login</title>
+    <title>OQYLab</title>
     <!-- boxicon link -->
 <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 <!-- custom css link -->
@@ -94,33 +94,33 @@ if(isset($_POST['submit'])){
     <div class="form-container">
         <img src="../image/fun.jpg" class="form-img" style="left:-2%">
         <form action="" method="post" enctype="multipart/form-data" class="register">
-            <h3>register now</h3>
+            <h3>Тіркелу</h3>
             <div clas="flex">
                 <div class="col">
-                    <p>your name<span>*</span></p>
-                    <input type="text" name="name" placeholder="enter your name" maxlength="50" required class="box">
-                    <p>your profession <span>*</span></p>
+                    <p>атыңыз<span>*</span></p>
+                    <input type="text" name="name" placeholder="Қайрат" maxlength="50" required class="box">
+                    <p>Мамандығыңыз<span>*</span></p>
                     <select name="profession" required class="box">
-                        <option value="" disabled selected>--select your profession--</option>
-                        <option value="developer">developer</option>
-                        <option value="teacher">teacher</option>
-                        <option value="student">student</option> 
-                        <option value="engineer">engineer</option>  
+                        <option value="" disabled selected>--Мамандығыңызды таңдаңыз--</option>
+                        <option value="developer">Бағдарламашы</option>
+                        <option value="teacher">Мұғалім</option>
+                        <option value="student">Студент</option> 
+                        <option value="engineer">Инженер</option>  
                     </select>
-                    <p>your email<span>*</span></p>
-                    <input type="email" name="email" placeholder="enter your email" maxlength="50" required class="box">
+                    <p>электронды пошта<span>*</span></p>
+                    <input type="email" name="email" placeholder="..@gmail.com" maxlength="50" required class="box">
                 </div>
                 <div class="col">
-                    `<p>your password<span>*</span></p>
-                    <input type="password" name="pass" placeholder="enter your password" maxlength="50" required class="box">
-                    <p>your password<span>*</span></p>
-                    <input type="password" name="cpass" placeholder="confirm your password" maxlength="50" required class="box">
-                    <p>select pic<span>*</span></p>
+                    `<p>құпиясөз<span>*</span></p>
+                    <input type="password" name="pass" placeholder="..." maxlength="50" required class="box">
+                    <p>құпиясөз растаңыз<span>*</span></p>
+                    <input type="password" name="cpass" placeholder="..." maxlength="50" required class="box">
+                    <p>сурет таңдаңыз<span>*</span></p>
                     <input type="file" name="image" accept="image/*" required class="box">`
                 </div>
             </div>
-            <p class="link">already have an account ? <<a href="login.php">login now</a></p>
-                <input type="submit" name="submit" class="btn" value="register now">
+            <p class="link">Аккаунтыңыз бар ма? <<a href="login.php">Кіру</a></p>
+                <input type="submit" name="submit" class="btn" value="Тіркелу">
         </form>
     </div>
 </body>

@@ -28,7 +28,7 @@ include __DIR__ . '/../components/connect.php';
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>OQYLab</title>
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Custom CSS -->
@@ -37,39 +37,39 @@ include __DIR__ . '/../components/connect.php';
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
     <section class="dashboard">
-      <h1 class="heading">dashboard</h1>
+      <h1 class="heading">профиль</h1>
 
       <div class="box-container">
         <div class="box">
           <h3>Welcome!</h3>
           <p><?= $fetch_profile['name'];?></p>
-          <a href="profile.php" class="btn">view profile</a>
+          <a href="profile.php" class="btn">профиль тексеру</a>
         </div>
         <div class="box">
           <h3><?= $total_contents;?></h3>
-          <p>total contents</p>
-          <a href="add_content.php" class="btn">add new content</a>
+          <p>барлық сабақтар</p>
+          <a href="add_content.php" class="btn">сабақ қосу</a>
         </div>
         <div class="box">
           <h3><?= $total_playlists;?></h3>
-          <p>total playlists</p>
-          <a href="add_playlist.php" class="btn">add new playlist</a>
+          <p>барлық курстар</p>
+          <a href="add_playlist.php" class="btn">курс қосу</a>
         </div>
         <div class="box">
           <h3><?= $total_likes;?></h3>
-          <p>total likes</p>
-          <a href="contents.php" class="btn">view contents</a>
+          <p>барлық лайк</p>
+          <a href="contents.php" class="btn">сабақтар қарау</a>
         </div>
         <div class="box">
           <h3><?= $total_comments;?></h3>
-          <p>total comments</p>
-          <a href="comments.php" class="btn">view comments</a>
+          <p>барлық пікірлер</p>
+          <a href="comments.php" class="btn">пікірлер қарау</a>
         </div>
         <div class="box">
-          <h3>quick start</h3>
+          <h3>тез қолдау</h3>
           <div class="flex-btn">
-            <a href="login.php" class="btn" style="width:200px;">login now</a>
-            <a href="register.php" class="btn" style="width:200px;">register now</a>
+            <a href="login.php" class="btn" style="width:200px;">кіру</a>
+            <a href="register.php" class="btn" style="width:200px;">тіркелу</a>
           </div>"
         </div>
       </div>

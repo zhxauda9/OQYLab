@@ -35,7 +35,7 @@ if ($select_playlist->rowCount() > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Playlist</title>
+    <title>OQYLab</title>
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Custom CSS -->
@@ -44,7 +44,7 @@ if ($select_playlist->rowCount() > 0) {
 <body>
     <?php include __DIR__ . '/components/user_header.php'; ?>
     <section class="view-playlist">
-        <h1 class="heading">playlist detail</h1>
+        <h1 class="heading">Курс туралы ақпарат</h1>
 
         <?php
         $select_playlist=$conn->prepare('SELECT * FROM `playlist` WHERE id=?');
@@ -72,13 +72,13 @@ if ($select_playlist->rowCount() > 0) {
         <?php
             }
         }else{
-            echo '<p class="empty">no playlist added yet!</p>';
+            echo '<p class="empty">Курс әлі қосылмады!</p>';
         }
         ?>
     </section>
 
     <section class="contents">
-        <h1 class="heading">playlist contents</h1>
+        <h1 class="heading">Курс сабақтары</h1>
 
         <div class="box-container">
             <?php
@@ -98,14 +98,14 @@ if ($select_playlist->rowCount() > 0) {
                 <img src="/uploaded_files/<?=$fetch_videos['thumb'];?>" class="thumb">
                 <h3 class="title"><?= $fetch_videos['title'];?></h3>
                 <form action="" method="post" class="flex-btn">
-                    <a href="content.php?get_id=<?=$video_id;?>" class="btn">view content</a>
+                    <a href="content.php?get_id=<?=$video_id;?>" class="btn">Бастау</a>
                 </form>
             </div>
             <?php
                 }
             } else {
                 echo '
-                <p class="empty">emew</p>
+                <p class="empty">Сабақтар салынбаған</p>
                 ';
             }
             ?>
