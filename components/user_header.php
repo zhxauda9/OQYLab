@@ -13,16 +13,16 @@
 
 <header class="header">
     <section class="flex">
-        <a href="home.php"><img src="image/logo.png" width="130px"></a>
+        <a href="home.php"><img src="image/oqylab.png" width="130px"></a>
         <nav class="navbar">
-            <a href="home.php"><span>home</span></a>
-            <a href="about.php"><span>about us</span></a>
-            <a href="courses.php"><span>courses</span></a>
-            <a href="teachers.php"><span>teachers</span></a>
-            <a href="contact.php"><span>contact us</span></a>
+            <a href="#"><span>Басты Бет</span></a>
+            <a href="#"><span>Ақпарат</span></a>
+            <a href="courses.php"><span>Сабақатр</span></a>
+            <a href="#"><span>Ұстаздар</span></a>
+            <a href="#"><span>Хабарласу</span></a>
         </nav>
         <form action="search_course.php" method="post" class="search-form">
-            <input type="text" name="search_course" placeholder="search course.." required maxlength="100">
+            <input type="text" name="search_course" placeholder="пайтон сабақтары.." required maxlength="100">
             <button type="submit" name="search_course_btn" class="bx bx-search-alt-2"></button>
         </form>
         <div class="icons">
@@ -39,19 +39,19 @@
             ?>
             <img src="../uploaded_files/<?= $fetch_profile['image']; ?>">
             <h3><?= $fetch_profile['name'];?></h3>
-            <span>student</span><br>
+            <span>Оқушы</span><br>
 
             <div id="flex-btn">
-                <a href="profile.php" class="btn">view profile</a>
-                <a href="logout.php" onclick="return confirm('logout from this website?');" class="btn">logout</a>
+                <a href="profile.php" class="btn">Профиль қарау</a>
+                <a href="logout.php" onclick="return confirm('шыққыңыз келеме?');" class="btn">Аккаунттан шығу</a>
             </div>
             <?php
                 }else{
             ?>
-            <h3>please login or register</h3>
+            <h3>Профильге кіріңіз немесе тіркеліңіз</h3>
             <div id="flex-btn">
-                <a href="login.php" class="btn">login</a>
-                <a href="register.php" class="btn">register</a>
+                <a href="login.php" class="btn">Кіру</a>
+                <a href="register.php" class="btn">Тіркелу</a>
             </div>
             <?php } ?>
         </div>

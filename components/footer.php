@@ -1,59 +1,59 @@
 <div class="newsletter">
     <div class="content">
-        <span>get latest histudy updates</span>
-        <h1>Subscribe Our Newsletter</h1>
-        <p>kdjdjfksd</p>
+        <span>OQYLAB жаңалықтарынан хабардар болыңыз</span>
+        <h1>Жаңалықтарға жазылыңыз</h1>
+        <p>IT саласындағы соңғы жаңалықтарды, тегін сабақтарды және пайдалы кеңестерді алыңыз.</p>
         <div class="input-field">
-            <input type="email" name="" placeholder="Enter your email">
-            <button class="btn">Subscribe</button>
-    </div>
-    <p>No ads, No trails, No commitments</p>
-    <div class="box-container">
-        <div class="box">
-            <div class="box-counter"><p class="counter" data-speed="1000">5000</p><i class="bx bx-plus"></i></div>
-            <h3>Siccessfully Trained</h3>
-            <p>Learners & Counting</p>
+            <input type="email" name="" placeholder="Электронды поштаңызды енгізіңіз">
+            <button class="btn">Жазылу</button>
         </div>
-        <div class="box">
-            <div class="box-counter"><p class="counter" data-speed="1000">5000</p><i class="bx bx-plus"></i></div>
-            <h3>Certification Students</h3>
-            <p>Onine Course</p>
+        <p>Жарнамасыз, сынақсыз, ешқандай міндеттемесіз</p>
+        <div class="box-container">
+            <div class="box">
+                <div class="box-counter"><p class="counter" data-speed="1000">5000</p><i class="bx bx-plus"></i></div>
+                <h3>Оқытылған студенттер</h3>
+                <p>Біздің платформамен білім алғандар</p>
+            </div>
+            <div class="box">
+                <div class="box-counter"><p class="counter" data-speed="1000">5000</p><i class="bx bx-plus"></i></div>
+                <h3>Сертификат алғандар</h3>
+                <p>Онлайн курстар арқылы</p>
+            </div>
         </div>
     </div>
-</div>
 </div>
 
 <footer>
     <div class="content">
         <div class="box">
-            <img src="../image/logo.png">
-            <p>fkdjsjkfsjdsk</p>
-            <p>dlkdlfks</p>
-            <a href="contact.php" class="btn">contact with us</a>
+            <img src="/image/logo.png">
+            <p>OQYLAB – қазақ тілінде IT оқыту платформасы.</p>
+            <p>Біз сізге бағдарламалау, веб-дизайн, мәліметтер қоры және басқа да IT салаларын үйретеміз.</p>
+            <a href="contact.php" class="btn">Бізбен байланысу</a>
         </div>
         <div class="box">
-            <h3>useful links</h3>
-            <a href="">online coaching</a>
-            <a href="">marketplace</a>
-            <a href="">kindergarten</a>
-            <a href="">university</a>
-            <a href="">GYM coaching</a>
-        </div>
-
-        <div class="box">
-            <h3>our company</h3>
-            <a href="contact.php">contact us</a>
-            <a href="">become teacher</a>
-            <a href="">blog</a>
-            <a href="">instructor</a>
-            <a href="">events</a>
+            <h3>Пайдалы сілтемелер</h3>
+            <a href="">Онлайн курстар</a>
+            <a href="">Маркетплейс</a>
+            <a href="">Балаларға арналған сабақтар</a>
+            <a href="">Жоғары оқу орны</a>
+            <a href="">IT мамандарына арналған тренингтер</a>
         </div>
 
         <div class="box">
-            <h3>get contact</h3>
-            <p>Phone: +77472661907</p>
+            <h3>Біздің компания</h3>
+            <a href="">Байланысу</a>
+            <a href="">Мұғалім болу</a>
+            <a href="">Блог</a>
+            <a href="">Нұсқаушылар</a>
+            <a href="">Оқиғалар</a>
+        </div>
+
+        <div class="box">
+            <h3>Байланыс</h3>
+            <p>Телефон: +77472661907</p>
             <p>E-mail: 231408@astanait.edu.kz</p>
-            <p>Location: Kazakhstan, Astana, AITU</p>
+            <p>Мекенжай: Қазақстан, Астана, AITU</p>
             <div class="icons">
                 <i class="bx bxl-facebook"></i>
                 <i class="bx bxl-instagram"></i>
@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="bottom">
-        <p>Copyright kdjskfkdfs</p>
-        <a href="../admin/register.php">become a teacher</a>
+        <p>Copyright OQYLAB</p>
+        <a href="/admin/register.php">Мұғалім болу</a>
     </div>
 </footer>

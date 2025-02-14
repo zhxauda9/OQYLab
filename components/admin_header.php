@@ -14,7 +14,7 @@
 
 <header class="header">
     <section class="flex">
-        <a href="dahsboard.php"><img src="../image/logo.png" width="130px"></a>
+        <a href="dahsboard.php"><img src="../image/oqylab.png" width="130px"></a>
         <form action="search_page.php" method="post" class="search-form">
             <input type="text" name="search" placeholder="search here.." required maxlength="100">
             <button type="submit" class="bx bx-search-alt-2" name="seach_btn"></button>

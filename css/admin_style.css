@@ -1,13 +1,13 @@
 :root{
     --color-primary:#2f57ef;
     --primary-opacity:#2f57ef11;
-    --color-secondary:#b966e7;
+    --color-secondary:#7e66e7;
     --color-voilet:#80080;
     --bg-color:#f9f9ff;
     --color-pink:#db709322;
     --pink-opacity:#db70932222;
     --box-shadow:0 0 10px rgb(0, 0, 0, 0.15);
-    --main-color:#8e44ad;
+    --main-color:#652c96;
     --red:#ed176f;
     --coral:#f7817f;
     --gradient: linear-gradient(90deg,var(--color-secondary),var(--color-pink));
