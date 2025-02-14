@@ -10,6 +10,11 @@ function generate_unique_id($conn) {
     return $id;
 }
 
+function generateShortFilename($filename) {
+    $ext = pathinfo($filename, PATHINFO_EXTENSION);
+    return uniqid() . bin2hex(random_bytes(4)) . '.' . $ext;
+}
+
 if(isset($_POST['submit'])){
     $id = generate_unique_id($conn);
 
@@ -35,11 +40,11 @@ if(isset($_POST['submit'])){
                 // Проверяем, загружен ли файл
                 if (!empty($_FILES['image']['name'])) {
                     $image = $_FILES['image']['name'];
-                    $ext = pathinfo($image, PATHINFO_EXTENSION);  
-                    $rename = unique_id() . '.' . $ext; // Генерируем уникальное имя
-                    $image_size = $_FILES['image']['size'];
+                    $image = filter_var($image, FILTER_SANITIZE_SPECIAL_CHARS);
+                    $rename = generateShortFilename($image);
                     $image_tmp_name = $_FILES['image']['tmp_name'];
-                    $image_folder = '../uploaded_files/' . $rename;
+                    $image_folder = __DIR__ . '/../uploaded_files/' . $rename;
+                    $uploadDir = __DIR__ . '/../uploaded_files/';
 
                     if (!is_dir('../uploaded_files')) {
                         mkdir('../uploaded_files', 0777, true); // Создаём папку, если её нет

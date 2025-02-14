@@ -1,4 +1,4 @@
-<?php
+<!-- <?php
     if(isset($message)){
         foreach($message as $message){
             echo '
@@ -9,7 +9,7 @@
             ';
         }
     }
-?>
+?> -->
 
 <header class="header">
     <section class="flex">
@@ -43,7 +43,7 @@
 
             <div id="flex-btn">
                 <a href="profile.php" class="btn">view profile</a>
-                <a href="../components/_logout.php" onclick="return confirm('logout from this website?');" class="btn">logout</a>
+                <a href="logout.php" onclick="return confirm('logout from this website?');" class="btn">logout</a>
             </div>
             <?php
                 }else{

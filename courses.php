@@ -53,7 +53,7 @@
             ?>
             <div class="box">
             <div class="tutor">
-                <img src="uploaded_files/<?=$fetch_courses['image'];?>">
+                <img src="uploaded_files/<?=$fetch_tutor['image'];?>">
                 <div>
                 <h3><?= $fetch_tutor['name'];?></h3>
                 <span><?= $fetch_courses['date'];?></span>

@@ -810,6 +810,119 @@ footer .bottom a{
     margin-right: .5rem;
 }
 
+/*----------- form container ---------*/
+.form-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+    padding: 4rem 0;
+}
+
+
+.form-container form{
+    box-shadow: var(--box-shadow);
+    border-radius: .5rem;
+    padding: 2rem;
+}
+.form-container .login {
+    width: 100%;
+    max-width: 50rem;
+}
+.form-container .register {
+    width: 90rem;
+}
+
+
+.form-container form p{
+    padding-top: 1rem;
+    font-size: 1.3rem;
+    color:var(--light-color);
+}
+
+.form-container form p span{
+    color: var(--red);
+}
+
+.form-container .link{
+    text-align: center;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.form-container .link a{
+    color:var(--main-color);
+}
+
+.form-container .link a:hover{
+    color:var(--black);
+    text-decoration: underline;
+}
+
+.form-container form .box{
+    width: 100%;
+    border-radius: .5rem;
+    margin:1rem 0;
+    font-size: 1.8rem;
+    color:var(--black);
+    padding: 1.2rem;
+    background-color: var(--box-shadow);
+}
+
+.form-container .flex{
+    display: flex;
+    gap:2rem;
+}
+.form-container .flex .col {
+    flex: 1 1 25rem;
+    min-width: 20rem;
+}
+
+
+.form-container .btn{
+    width: 100%;
+    font-size: 1.5rem;
+}
+
+
+.dashboard .box-container{
+    display:grid;
+    grid-template-columns: repeat(auto-fit,minmax(30rem,1fr));
+    align-items: flex-start;
+    justify-content: center;
+    gap:1.5rem;
+    margin:5rem;
+
+}
+
+.dashboard .box-container .box{
+    padding: 2rem;
+    border-radius: .5rem;
+    background-color: var(--white);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    line-height: 2;
+}
+
+.dashboard .box-container .box h3{
+    font-size: 2.5rem;
+    color:var(--black);
+    margin-bottom: 1.5rem;
+}
+
+.dashboard .box-container .box p{
+    font-size: 2rem;
+    color:var(--light-color);
+    padding:.8rem 1.5rem;
+    border-radius: .5rem;
+    background-color: var(--light-bg);
+    margin: 1rem 0;
+    margin-bottom: 2rem;
+    text-transform: capitalize;
+}
+
 /*----------- footer ---------*/
 @media (max-width:768px){
     #search-btn, #menu-btn{
