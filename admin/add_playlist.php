@@ -71,9 +71,9 @@ if (isset($_POST['submit'])) {
                 <option value="deactive">deactive</option>
             </select>
             <p>playlist title <span>*</span></p>
-            <input type="text" name="title" maxlength="150" required placeholder="Enter playlist title" class="box">
+            <input type="text" name="title" maxlength="1000" required placeholder="Enter playlist title" class="box">
             <p>playlist description</p> 
-            <textarea name="description" class="box"placeholder="write description" maxlength="1000" cols="30" rows="10"></textarea>
+            <textarea name="description" class="box"placeholder="write description" maxlength="10000000000000" cols="30" rows="10"></textarea>
             <p>playlist thumbnail<span>*</span></p>
             <input type="file" name="image" accept="image/*" required class="box">
             <input type="submit" name="submit" value="create playlist" class="btn">

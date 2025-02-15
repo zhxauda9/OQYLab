@@ -588,9 +588,9 @@ footer .bottom a{
 }
 
 .courses .box-container{
-    padding:5% 17%;
+    padding:5% 5%;
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(35rem,1fr));
+    grid-template-columns: repeat(auto-fit,minmax(40rem,1fr));
     gap:1.5rem;
     align-items: flex-start;
     justify-content: center;
@@ -640,7 +640,7 @@ footer .bottom a{
 .courses .box-container .thumb{
     width: 40rem;
     border-radius: .5rem;
-    height: 40rem;
+    height: 30rem;
     object-fit:cover;
     margin-bottom: .3rem;
 }

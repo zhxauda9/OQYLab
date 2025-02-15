@@ -69,17 +69,17 @@ if (isset($_POST['submit'])) {
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
     <section class="video-form">
-        <h1 class="heading">upload content</h1>
+        <h1 class="heading">Жаңа сабақ қосу</h1>
 
         <form action="" method="post" enctype="multipart/form-data">
             <p>playlist status <span>*</span></p>
             <select name="status" class="box">
-                <option value="" selected disabled>--select status--</option>
+                <option value="" selected disabled>--статус таңдаңыз--</option>
                 <option value="active">active</option>
                 <option value="deactive">deactive</option>
             </select>
             <p>video title <span>*</span></p>
-            <input type="text" name="title" maxlength="150" required placeholder="Enter playlist title" class="box">
+            <input type="text" name="title" maxlength="2000" required placeholder="Enter playlist title" class="box">
             <p>video description <span>*</span></p>
             <textarea name="description" class="box"placeholder="write description" maxlength="1000" cols="30" rows="10"></textarea>
             <p>video playlist <span>*</span></p>

@@ -52,7 +52,7 @@ if(isset($_POST['delete_video'])) {
 //delet comment from content
 
 if(isset($_POST['delete_comment'])) {
-    $delete_id=$_POST['delete_id'];
+    $delete_id=$_POST['comment_id'];
     $delete_id=filter_var($delete_id,FILTER_SANITIZE_SPECIAL_CHARS);
 
     $verify_comment=$conn->prepare('SELECT * FROM `comments` WHERE id=? LIMIT 1');
