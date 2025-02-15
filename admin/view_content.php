@@ -84,7 +84,7 @@ if(isset($_POST['delete_comment'])) {
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
     <section class="view-content">
-        <h1 class="heading">content detail</h1>
+        <h1 class="heading">Сабақ</h1>
 
         <?php
             $select_content=$conn->prepare("SELECT * FROM `content` WHERE id=? AND tutor_id=?");
@@ -115,8 +115,8 @@ if(isset($_POST['delete_comment'])) {
             </div>
             <form action="" method="post">
                 <input type="hidden" name="video_id" value="<?= $video_id;?>">
-                <a href="update_content.php?get_id=<?=$video_id;?>" class="btn">update</a>
-                <input type="submit" name="delete_video" value="delete video" class="btn" onclick="return confirm('delete this video?');">
+                <a href="update_content.php?get_id=<?=$video_id;?>" class="btn">жаңарту</a>
+                <input type="submit" name="delete_video" value="өшіру" class="btn" onclick="return confirm('delete this video?');">
             </form>
         </div>
         <?php
@@ -134,7 +134,7 @@ if(isset($_POST['delete_comment'])) {
 
     </section>
     <section class="comments">
-            <h1 class="heading">user comments</h1>
+            <h1 class="heading">оқушылар пікірлері</h1>
             <div class="show comments">
                 <?php
                 $select_comments=$conn->prepare("SELECt * FROM `comments` WHERE content_id=?");
@@ -164,7 +164,7 @@ if(isset($_POST['delete_comment'])) {
                 <?php
                     }
                 }
-                echo '<p class="empty">no comments added yet!</p>'
+                echo '<p class="empty">әлі бір де бір пікір қосылмаған!</p>'
                 ?>
             </div>
     </section>

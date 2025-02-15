@@ -125,7 +125,7 @@ if(isset($_POST['delete_video'])) {
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
     <section class="contents">
-        <h1 class="heading">contents</h1>
+        <h1 class="heading">табылған сабақтар</h1>
         <div class="box-container">
             <?php
             if(isset($_POST['search']) or isset($_POST['search_btn'])){
@@ -169,7 +169,7 @@ if(isset($_POST['delete_video'])) {
         </div>
     </section>
     <section class="playlists">
-        <h1 class="heading">playlist</h1>
+        <h1 class="heading">Табылған Курстар</h1>
         <div class="box-container">
         <?php
             if(isset($_POST['search']) or isset($_POST['search_btn'])){

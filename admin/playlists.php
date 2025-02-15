@@ -21,7 +21,6 @@ if (isset($_POST['delete'])) {
             unlink($thumb_path);
         }
 
-        // Удаляем записи из связанных таблиц
         $delete_bookmark = $conn->prepare('DELETE FROM `bookmark` WHERE playlist_id=?');
         $delete_bookmark->execute([$delete_id]);
 
@@ -50,7 +49,7 @@ if (isset($_POST['delete'])) {
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
 
     <section class="playlists">
-        <h1 class="heading">Added Playlists</h1>
+        <h1 class="heading">Қосылған курстар</h1>
 
         <div class="box-container">
             <div class="add">
@@ -88,9 +87,9 @@ if (isset($_POST['delete'])) {
                         <p class="description"><?= htmlspecialchars($row['description']); ?></p>
                         <form action="" method="post" class="flex-btn">
                             <input type="hidden" name="playlist_id" value="<?= $playlist_id; ?>">
-                            <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">Update</a>
-                            <input type="submit" name="delete" value="Delete" class="btn" onclick="return confirm('Delete this playlist?');">
-                            <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">View Playlist</a>
+                            <a href="update_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">жаңарту</a>
+                            <input type="submit" name="delete" value="өшіру" class="btn" onclick="return confirm('Delete this playlist?');">
+                            <a href="view_playlist.php?get_id=<?= $playlist_id; ?>" class="btn">курс қарау</a>
                         </form>
                     </div>
             <?php

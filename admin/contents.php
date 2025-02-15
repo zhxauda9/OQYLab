@@ -54,7 +54,7 @@ if(isset($_POST['delete_video'])) {
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
 
     <section class="contents">
-        <h1 class="heading">your contents</h1>
+        <h1 class="heading"></h1>
 
         <div class="box-container">
             <div class="add">
@@ -78,9 +78,9 @@ if(isset($_POST['delete_video'])) {
                 <h3 class="title"><?= $fetch_videos['title'];?></h3>
                 <form action="" method="post" class="flex-btn">
                     <input type="hidden" name="video_id" value="<?= $video_id;?>">
-                    <a href="update_content.php?get_id=<?=$video_id;?>" class="btn">update</a>
-                    <input type="submit" name="delete_video" value="delete" class="btn" onclick="return confirm('delete this video?');">
-                    <a href="view_content.php?get_id=<?=$video_id;?>" class="btn">view content</a>
+                    <a href="update_content.php?get_id=<?=$video_id;?>" class="btn">жаңарту</a>
+                    <input type="submit" name="delete_video" value="өшіру" class="btn" onclick="return confirm('delete this video?');">
+                    <a href="view_content.php?get_id=<?=$video_id;?>" class="btn">сабақ қарау</a>
                 </form>
             </div>
             <?php

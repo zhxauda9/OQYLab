@@ -132,7 +132,7 @@ if(isset($_POST['delete_video'])) {
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
     <section class="view-playlist">
-        <h1 class="heading">playlist detail</h1>
+        <h1 class="heading">Курс</h1>
 
         <?php
         $select_playlist=$conn->prepare('SELECT * FROM `playlist` WHERE id=? AND tutor_id=?');
@@ -158,8 +158,8 @@ if(isset($_POST['delete_video'])) {
             </div>
             <form action="" method="post" class="flex-btn">
                 <input type="hidden" name="playlist_id" value="<?=$playlist_id;?>">
-                <a href="update_playlist.php?get_id=<?=$video_id;?>" class="btn">update playlist</a>
-                <input type="submit" name="delete" value="delete playlist" class="btn" onclick="return confirm('delete this playlist');">
+                <a href="update_playlist.php?get_id=<?=$video_id;?>" class="btn">жаңарту</a>
+                <input type="submit" name="delete" value="курс өшіру" class="btn" onclick="return confirm('delete this playlist');">
             </form>
         </div>
         <?php
@@ -171,7 +171,7 @@ if(isset($_POST['delete_video'])) {
     </section>
 
     <section class="contents">
-        <h1 class="heading">playlist contents</h1>
+        <h1 class="heading">курс Сабақтары</h1>
 
         <div class="box-container">
             <?php
@@ -192,9 +192,9 @@ if(isset($_POST['delete_video'])) {
                 <h3 class="title"><?= $fetch_videos['title'];?></h3>
                 <form action="" method="post" class="flex-btn">
                     <input type="hidden" name="video_id" value="<?= $video_id;?>">
-                    <a href="update_content.php?get_id=<?=$video_id;?>" class="btn">update</a>
-                    <input type="submit" name="delete_video" value="delete" class="btn" onclick="return confirm('delete this video?');">
-                    <a href="view_content.php?get_id=<?=$video_id;?>" class="btn">view content</a>
+                    <a href="update_content.php?get_id=<?=$video_id;?>" class="btn">жаңарту</a>
+                    <input type="submit" name="delete_video" value="өшіру" class="btn" onclick="return confirm('delete this video?');">
+                    <a href="view_content.php?get_id=<?=$video_id;?>" class="btn">сабақ қарау</a>
                 </form>
             </div>
             <?php

@@ -61,22 +61,22 @@ if (isset($_POST['submit'])) {
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
     <section class="playlist-form">
-        <h1 class="heading">create playlist</h1>
+        <h1 class="heading">Жаңа курс қосу</h1>
 
         <form action="" method="post" enctype="multipart/form-data">
-            <p>playlist status <span>*</span></p>
+            <p>курс статусы <span>*</span></p>
             <select name="status" class="box">
-                <option value="" selected disabled>--select status--</option>
-                <option value="active">active</option>
-                <option value="deactive">deactive</option>
+                <option value="" selected disabled>--статус таңданыз--</option>
+                <option value="active">белсенді</option>
+                <option value="deactive">белсенді емес</option>
             </select>
-            <p>playlist title <span>*</span></p>
-            <input type="text" name="title" maxlength="1000" required placeholder="Enter playlist title" class="box">
-            <p>playlist description</p> 
-            <textarea name="description" class="box"placeholder="write description" maxlength="10000000000000" cols="30" rows="10"></textarea>
-            <p>playlist thumbnail<span>*</span></p>
+            <p>курс атауы<span>*</span></p>
+            <input type="text" name="title" maxlength="1000" required placeholder="курс атауын жазыңыз" class="box">
+            <p>курс жайлы</p> 
+            <textarea name="description" class="box"placeholder="курс жайлы жазыңыз" maxlength="10000000000000" cols="30" rows="10"></textarea>
+            <p>курс суреті<span>*</span></p>
             <input type="file" name="image" accept="image/*" required class="box">
-            <input type="submit" name="submit" value="create playlist" class="btn">
+            <input type="submit" name="submit" value="курс қосу" class="btn">
         </form>
 
     </section>

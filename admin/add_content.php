@@ -72,19 +72,19 @@ if (isset($_POST['submit'])) {
         <h1 class="heading">Жаңа сабақ қосу</h1>
 
         <form action="" method="post" enctype="multipart/form-data">
-            <p>playlist status <span>*</span></p>
+            <p>сабақ статусы <span>*</span></p>
             <select name="status" class="box">
-                <option value="" selected disabled>--статус таңдаңыз--</option>
-                <option value="active">active</option>
-                <option value="deactive">deactive</option>
+                <option value="" selected disabled>--сабақ таңдаңыз--</option>
+                <option value="active">белсенді</option>
+                <option value="deactive">белсенді емес</option>
             </select>
-            <p>video title <span>*</span></p>
-            <input type="text" name="title" maxlength="2000" required placeholder="Enter playlist title" class="box">
-            <p>video description <span>*</span></p>
-            <textarea name="description" class="box"placeholder="write description" maxlength="1000" cols="30" rows="10"></textarea>
+            <p>сабақ атауы<span>*</span></p>
+            <input type="text" name="title" maxlength="2000" required placeholder="сабақ атауын жазыңыз" class="box">
+            <p>сабақ жайлы <span>*</span></p>
+            <textarea name="description" class="box"placeholder="сабақ жайлы жазыңыз" maxlength="1000" cols="30" rows="10"></textarea>
             <p>video playlist <span>*</span></p>
             <select name="playlist" class="box" required>
-             <option value="" selected disabled>--select playlist--</option>
+             <option value="" selected disabled>--курс таңданыз----</option>
              <?php
              $select_playlists=$conn->prepare('SELECT * FROM `playlist` WHERE tutor_id=?');
              $select_playlists->execute([$tutor_id]);
@@ -99,11 +99,11 @@ if (isset($_POST['submit'])) {
                 }
              ?>
             </select>
-            <p>select thumbnail<span>*</span></p>
+            <p>сабақ суреті<span>*</span></p>
             <input type="file" name="image" accept="image/*" required class="box">
-            <p>select video<span>*</span></p>
+            <p>сабақ бейнежазбасы video<span>*</span></p>
             <input type="file" name="video" accept="video/*" required class="box">
-            <input type="submit" name="submit" value="upload video" class="btn">
+            <input type="submit" name="submit" value="сабақ қосу" class="btn">
         </form>
 
     </section>

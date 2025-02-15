@@ -37,34 +37,34 @@ include __DIR__ . '/../components/connect.php';
 <body>
     <?php include __DIR__ . '/../components/admin_header.php'; ?>
     <section class="tutor-profile" style="min-height: calc(100vh - 19rem);">
-      <h1 class="heading">profile</h1>
+      <h1 class="heading">Профиль</h1>
         <div class="details">
             <div class="tutor">
             <img src="../uploaded_files/<?= $fetch_profile['image'];?>">
                 <h3><?= $fetch_profile['name'];?></h3>
                 <span><?=$fetch_profile['profession'];?></span>
-                <a href="update.php" class="btn">update profile</a>
+                <a href="update.php" class="btn">профиль жаңарту</a>
             </div>
             <div class="flex">
                 <div class="box">
                     <span><?= $total_playlists;?></span>
-                    <p>total playlists</p>
-                    <a href="playlists.php" class="btn">view playlists</a>
+                    <p>барлық курстар</p>
+                    <a href="playlists.php" class="btn">курстар қарау</a>
                 </div>
                 <div class="box">
                     <span><?= $total_contents;?></span>
-                    <p>total contents</p>
-                    <a href="contents.php" class="btn">view contents</a>
+                    <p>барлық сабақтар</p>
+                    <a href="contents.php" class="btn">сабақтар қарау</a>
                 </div>
                 <div class="box">
                     <span><?= $total_likes;?></span>
-                    <p>total likes</p>
-                    <a href="likes.php" class="btn">view likes</a>
+                    <p>барлық лайктар</p>
+                    <a href="likes.php" class="btn">лайктар қарау</a>
                 </div>
                 <div class="box">
                     <span><?= $total_comments;?></span>
-                    <p>total comments</p>
-                    <a href="comments.php" class="btn">view comments</a>
+                    <p>барлық пікірлер</p>
+                    <a href="comments.php" class="btn">пікірлер қарау</a>
                 </div>
             </div>
         </div>

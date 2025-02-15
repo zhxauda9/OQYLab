@@ -41,7 +41,7 @@ include __DIR__ . '/../components/connect.php';
 
       <div class="box-container">
         <div class="box">
-          <h3>Welcome!</h3>
+          <h3>Қош келдіңіз!</h3>
           <p><?= $fetch_profile['name'];?></p>
           <a href="profile.php" class="btn">профиль тексеру</a>
         </div>
